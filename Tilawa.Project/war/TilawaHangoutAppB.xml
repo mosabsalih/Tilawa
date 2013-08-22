@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<!-- Licensed under the Apache License, Version 2.0 (the "License"); you may not
+	* use this file except in compliance with the License. You may obtain a copy of
+	* the License at
+	*
+	* http://www.apache.org/licenses/LICENSE-2.0
+	*
+	* Unless required by applicable law or agreed to in writing, software
+	* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+	* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+	* License for the specific language governing permissions and limitations under
+	* the License
+	-->
+	<ModulePrefs title="Tilawa App">
+		<Require feature="views" />
+	</ModulePrefs>
+	<Content type="html">
+		<![CDATA[
+		<html>
+		<head>
+		<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+		<link href="//tilawaapp.appspot.com/css/bootstrap-rtl.min.css" rel="stylesheet">
+		<link href="//tilawaapp.appspot.com/css/bootstrap-responsive-rtl.min.css" rel="stylesheet">
+		<link href="//tilawaapp.appspot.com/css/rtl.css" rel="stylesheet">
+		<script src="//tilawaapp.appspot.com/js/bootstrap.min.js"></script>
+		<script src="//tilawaapp.appspot.com/js/jquery.js"></script>
+		<!-- For Booklet -->
+		</head>
+		<body>
+		<p>
+		<button class="btn btn-large btn-primary" type="button">Large button</button>
+		<button class="btn btn-large" type="button">Large button</button>
+		</p>
+		<p>
+		<button class="btn btn-primary" type="button">Default button</button>
+		<button class="btn" type="button">Default button</button>
+		</p>
+		<p>
+		<button class="btn btn-small btn-primary" type="button">Small button</button>
+		<button class="btn btn-small" type="button">Small button</button>
+		</p>
+		<p>
+		<button class="btn btn-mini btn-primary" type="button">Mini button</button>
+		<button class="btn btn-mini" type="button">Mini button</button>
+		</p>
+		</body>
+		</html>
+		]]>
+	</Content>
+</Module>
+

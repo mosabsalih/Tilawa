@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="org/tilawa/internal/services/DataServices.java" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/jersey-bundle-1.17.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson.1.6.1/jackson-core-asl-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson.1.6.1/jackson-jaxrs-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson.1.6.1/jackson-mapper-asl-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson.1.6.1/jackson-mrbean-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson.1.6.1/jackson-smile-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson.1.6.1/jackson-xc-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jsmpp.2.1/jsmpp-2.1.0.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
