@@ -107,11 +107,6 @@
 		<p id="showData"></p>
 		<br />
 
-		<button class="btn btn-large btn-primary" type="button" id="getData2">
-		Get Data2
-		</button>
-		<p id="showData2"></p>
-
 		</div>
 		</div>
 		<div class="tab-pane" id="D">
@@ -195,17 +190,6 @@
 		});
 
 		$("#showData").after(serverData);
-
-		});
-
-		$("#getData2").click(function() {
-
-		var serverData2 = getVerses({
-		suratId : 1,
-		verseId : 3
-		});
-
-		$("#showData2").after(serverData2);
 
 		});
 

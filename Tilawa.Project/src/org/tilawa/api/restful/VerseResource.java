@@ -12,7 +12,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
@@ -22,6 +24,7 @@ import org.tilawa.internal.entities.VerseExtra;
 import org.tilawa.internal.services.VerseServices;
 
 import com.google.appengine.api.datastore.Text;
+import com.sun.jersey.api.json.JSONWithPadding;
 
 
 
@@ -31,7 +34,7 @@ import com.google.appengine.api.datastore.Text;
  * @author m.sharif
  */
 
-@Path("/v1/verse")
+@Path("/v1/surat")
 public class VerseResource {
 
 	private static final Logger log = Logger.getLogger(VerseResource.class.getSimpleName());
@@ -147,7 +150,7 @@ public class VerseResource {
 	 * Function to get verse patch from a Surat
 	 * 
 	 */
-	@Path("/{suratNo}/{verseNo}/{verseCount}")
+/*	@Path("/{suratNo}/{verseNo}/{verseCount}")
 	@GET
 	@Produces({ "application/xml", "application/json" })
 	public Response getXVersesForSurat(@PathParam("suratNo")   int suratNo,
@@ -182,7 +185,7 @@ public class VerseResource {
 		}
 
 		return theResponse;
-	}
+	}*/
 	
 	/**
 	 * Function to get single verse from Surat
@@ -263,5 +266,49 @@ public class VerseResource {
 	}*/
 
 	
+// ---------------------------------------------------------------
+// 							JSONP								
+// ---------------------------------------------------------------
+	
+	@Path("/{suratNo}/{verseNo}/{verseCount}")
+	@GET
+	@Produces({ "application/javascript"})
+	public Response getXVersesForSuratP(@PathParam("suratNo")   int suratNo,
+									   @PathParam("verseNo")    int verseNo,
+									   @PathParam("verseCount") int verseCount,
+									   @QueryParam("callback") String callback) {
+
+		Response theResponse = null;
+
+		try {
+			
+			Collection<Object> theVerseCollection = verseServices.getXVersesForSurat(suratNo, verseNo, verseCount);
+			
+			if(theVerseCollection.size() > 0) {
+				
+				VerseCollection theCollection = new VerseCollection();
+				theCollection.setVerses((Collection)theVerseCollection);
+				
+				JSONWithPadding theJSONP = new JSONWithPadding(new GenericEntity<VerseCollection>(theCollection) {}, callback);
+
+				theResponse = Response.ok(theJSONP).build();
+								
+				
+			} else {
+				
+				theResponse = Response.status(Response.Status.NOT_FOUND).build();
+			}
+			
+
+		} catch (Throwable t) {
+
+			theResponse = Response.serverError().build();
+			log.severe("Error happend when getting single verse information");
+			log.log(Level.SEVERE, "Throwable", t);
+
+		}
+
+		return theResponse;
+	}
 		
 }
