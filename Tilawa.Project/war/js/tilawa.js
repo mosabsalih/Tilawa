@@ -16,7 +16,7 @@ function getVerses(request) {
 			contentType : "application/json",
 			dataType : "jsonp",
 			crossDomain : true,
-			url : "http://localhost:8888/v1/surat/" + suratId + "/" + verseId + "/" + verseCount
+			url : "http://tilawaapp.appspot.com/v1/surat/" + suratId + "/" + verseId + "/" + verseCount
 			
 		}).done(function(data) {
 			
