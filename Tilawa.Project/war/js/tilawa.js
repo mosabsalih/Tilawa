@@ -35,6 +35,25 @@ function getVerses(request) {
 	} else if (suratId != null && verseId != null) {
 
 		console.log("getting all verses for a Surat");
+				$.ajax({
+			type : "GET",
+			contentType : "application/json",
+			dataType : "json",
+			url : "http://tilawaapp.appspot.com/v1/surat/" + suratId + "/" + verseId 
+			
+		}).done(function(data) {
+			
+			console.log(data);
+			//return data;
+			// TODO
+
+		}).fail(function(data) {
+
+			console.log(data);
+			//return data;
+			// TODO
+		}); 
+		
 		
 		// Doing a request for a certin verse
 	} else if (suratId != null) {
