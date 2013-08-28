@@ -10,6 +10,7 @@ function getVerses(request) {
 	// Doing a request for a certin verse count
 	if (suratId != null && verseId != null && verseCount != null) {
 
+		
 		console.log("getting x verses from Surat");
 		$.ajax({
 			type : "GET",
